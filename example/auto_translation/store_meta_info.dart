@@ -50,23 +50,6 @@ MyStoreInfo myStoreInfo = MyStoreInfo(
   // 앱스토어 업데이트 노트
   releaseNote: "fix small bug :)",
 
-  // 사용안함
-  screenshotTitle01: "",
-  screenshotTitle02: "",
-  screenshotTitle03: "",
-  screenshotTitle04: "",
-  screenshotTitle05: "",
-
-  // 사용중(스크린샷 상단 글자)
-  screenshotSubTitle01: "",
-  screenshotSubTitle02: "",
-  screenshotSubTitle03: "",
-  screenshotSubTitle04: "",
-  screenshotSubTitle05: "",
-
-  // 스크린샷 번역 시작 언어
-  screenshotStartLanguageCode: "en",
-
   // 홈페이지 주소
   homepageLink: "",
 

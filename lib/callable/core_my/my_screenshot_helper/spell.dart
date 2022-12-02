@@ -6,6 +6,7 @@ import '../../core_lib/google_translate/spell.dart';
 import '../my_language_code/entity/google_translate_support_language_code.dart';
 import '../my_language_code/spell.dart';
 import '../my_translate_store_info/entity/my_store_info.dart';
+import 'entity/my_screenshot_info.dart';
 
 class MyScreenshotHelperSpell {
   static const PATH = "june_translation_helper/screenshots";
@@ -26,26 +27,26 @@ class MyScreenshotHelperSpell {
   }
 
   prepareGenerateScreenshotFrame(
-      MyStoreInfo myStoreInfo, String googleTranslateApiKey) async {
+      MyScreenshotInfo myScreenshotInfo, String googleTranslateApiKey) async {
     //keyword.strings (안쓰는것)
     _makeStringFile(
-        myStoreInfo.screenshotTitle01,
-        myStoreInfo.screenshotTitle02,
-        myStoreInfo.screenshotTitle03,
-        myStoreInfo.screenshotTitle04,
-        myStoreInfo.screenshotTitle05,
-        fromLang: myStoreInfo.screenshotStartLanguageCode,
+        myScreenshotInfo.screenshotTitle01,
+        myScreenshotInfo.screenshotTitle02,
+        myScreenshotInfo.screenshotTitle03,
+        myScreenshotInfo.screenshotTitle04,
+        myScreenshotInfo.screenshotTitle05,
+        fromLang: myScreenshotInfo.screenshotStartLanguageCode,
         fileName: 'keyword.strings',
         googleTranslateApiKey);
 
     //title.strings (현재사용중)
     _makeStringFile(
-        myStoreInfo.screenshotSubTitle01,
-        myStoreInfo.screenshotSubTitle02,
-        myStoreInfo.screenshotSubTitle03,
-        myStoreInfo.screenshotSubTitle04,
-        myStoreInfo.screenshotSubTitle05,
-        fromLang: myStoreInfo.screenshotStartLanguageCode,
+        myScreenshotInfo.screenshotSubTitle01,
+        myScreenshotInfo.screenshotSubTitle02,
+        myScreenshotInfo.screenshotSubTitle03,
+        myScreenshotInfo.screenshotSubTitle04,
+        myScreenshotInfo.screenshotSubTitle05,
+        fromLang: myScreenshotInfo.screenshotStartLanguageCode,
         fileName: 'title.strings',
         googleTranslateApiKey);
   }

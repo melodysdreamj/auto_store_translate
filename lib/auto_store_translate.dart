@@ -1,5 +1,7 @@
 library auto_store_translate;
 
+export 'callable/core_my/my_screenshot_helper/entity/my_screenshot_info.dart';
+import 'callable/core_my/my_screenshot_helper/entity/my_screenshot_info.dart';
 import 'callable/core_my/my_screenshot_helper/spell.dart';
 import 'callable/core_my/my_translate_store_info/entity/my_store_info.dart';
 import 'callable/core_my/my_translate_store_info/spell.dart';
@@ -28,11 +30,11 @@ class AutoStoreTranslate {
   }
 
   static Future prepareGenerateScreenshotFrame(
-    MyStoreInfo myStoreInfo,
+      MyScreenshotInfo myScreenshotInfo,
     String googleTranslateApiKey,
   ) async {
     await MyScreenshotHelperSpell()
-        .prepareGenerateScreenshotFrame(myStoreInfo, googleTranslateApiKey);
+        .prepareGenerateScreenshotFrame(myScreenshotInfo, googleTranslateApiKey);
   }
 
   static Future distributeScreenshotFrameFile() async {
