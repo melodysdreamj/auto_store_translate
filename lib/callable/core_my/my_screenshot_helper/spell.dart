@@ -9,9 +9,9 @@ import '../my_translate_store_info/entity/my_store_info.dart';
 import 'entity/my_screenshot_info.dart';
 
 class MyScreenshotHelperSpell {
-  static const PATH = "june_translation_helper/screenshots";
-  static const META_PATH = "june_translation_helper/metadata";
-  static const FRAMED_PATH = "june_translation_helper/framed";
+  static const PATH = "auto_translation/screenshots";
+  static const META_PATH = "auto_translation/metadata";
+  static const FRAMED_PATH = "auto_translation/framed";
 
   removeUnderBarInGalaxy() async {
     List<Directory> langsFolder = await _getLangsFoldersInFolder(PATH);

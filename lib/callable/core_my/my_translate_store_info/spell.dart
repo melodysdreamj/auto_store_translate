@@ -7,7 +7,7 @@ import 'entity/my_store_info.dart';
 import 'package:basic_utils/basic_utils.dart';
 
 class MyTranslateStoreInfoSpell {
-  static const PATH = "june_translation_helper/metadata";
+  static const PATH = "auto_translation/metadata";
 
   translateStoreInfo(
       MyStoreInfo myStoreInfo, String googleTranslateApiKey) async {
