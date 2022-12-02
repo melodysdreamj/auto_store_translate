@@ -40,6 +40,8 @@ class GoogleTranslateSpell {
       print(e);
     }
 
+    print(text);
+
     return text;
   }
 }
