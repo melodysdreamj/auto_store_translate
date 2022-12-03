@@ -1,4 +1,4 @@
-# Auto App Translate
+# Auto Store Translate
 A library that automates translation/registration of metadata (title, description, etc.) in the App Store/Play Store.
 
 ![](https://user-images.githubusercontent.com/21379657/205428230-e60ae96e-26ea-427e-88d2-4f613963a884.jpg)
@@ -15,7 +15,8 @@ dependencies:
 ```
 
 ### 2. Create a dart file in your project and paste the code below.
-create dart file in your project. location doesn't matter.<br>
+create dart file in your project <br>
+project path > auto_translation > store_meta_info.dart<br>
 ![](https://user-images.githubusercontent.com/21379657/205425607-14738b99-9f44-428d-980d-5f259bdd0482.png)
 <br>please fill in all the information below.<br>
 ```dart
