@@ -12,17 +12,13 @@ class AutoStoreTranslate {
   static translateStoreInfo({
     required MyStoreInfo myStoreInfo,
     required String googleTranslateApiKey,
+    bool onlyAppNameTranslate = false,
   }) {
-    MyTranslateStoreInfoSpell()
-        .translateStoreInfo(myStoreInfo, googleTranslateApiKey);
-  }
-
-  static translateStoreInfoOnlyAppName({
-    required MyStoreInfo myStoreInfo,
-    required String googleTranslateApiKey,
-  }) {
-    MyTranslateStoreInfoSpell()
-        .translateStoreInfoOnlyAppName(myStoreInfo, googleTranslateApiKey);
+    if(onlyAppNameTranslate) {
+      MyTranslateStoreInfoSpell().translateStoreInfoOnlyAppName(myStoreInfo, googleTranslateApiKey);
+    } else {
+      MyTranslateStoreInfoSpell().translateStoreInfo(myStoreInfo, googleTranslateApiKey);
+    }
   }
 
   static Future removeUnderBarInGalaxy() async {

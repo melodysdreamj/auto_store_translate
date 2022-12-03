@@ -58,3 +58,14 @@ MyStoreInfo myStoreInfo = MyStoreInfo(
   // Privacy Policy URL
   policyPageLink: "https://github.com/melodysdreamj",
 );
+
+main() {
+  AutoStoreTranslate.translateStoreInfo(
+      myStoreInfo: myStoreInfo,
+
+      // google translate api key
+      googleTranslateApiKey: "INPUT_YOUR_GOOGLE_TRANSLATE_API_KEY",
+
+      // true: translate only title, false: translate title + all
+      onlyAppNameTranslate: false);
+}

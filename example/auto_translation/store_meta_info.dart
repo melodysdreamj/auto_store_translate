@@ -1,15 +1,15 @@
 import 'package:auto_store_translate/auto_store_translate.dart';
 
-/// 여기에 각종 스토어 정보를 적어주세요.
+/// write your store info here.
 
 MyStoreInfo myStoreInfo = MyStoreInfo(
-  // Play Store Title 30 characters or less 
+  // Play Store Title 30 characters or less
   playStoreTitle: "",
 
-  // Play Store Short Description 80 characters or less 
+  // Play Store Short Description 80 characters or less
   playStoreShortDescription: "",
 
-  // Play Store Long Description 4000 characters or less 
+  // Play Store Long Description 4000 characters or less
   playStoreFullDescription: '''
   
 
@@ -21,13 +21,13 @@ MyStoreInfo myStoreInfo = MyStoreInfo(
   // Play Store Title Translation
   translatePlayStoreName: true,
 
-  // App Store Title 30 characters or less 
+  // App Store Title 30 characters or less
   appStoreTitle: "",
 
-  // App Store Subtitle 30 characters or less 
+  // App Store Subtitle 30 characters or less
   appStoreSubTitle: "",
 
-  // App Store Description 4000 characters or less 
+  // App Store Description 4000 characters or less
   appStringDescription: '''
   
 
@@ -54,3 +54,14 @@ MyStoreInfo myStoreInfo = MyStoreInfo(
   // Privacy Policy URL
   policyPageLink: "",
 );
+
+main() {
+  AutoStoreTranslate.translateStoreInfo(
+      myStoreInfo: myStoreInfo,
+
+      // google translate api key
+      googleTranslateApiKey: "INPUT_YOUR_GOOGLE_TRANSLATE_API_KEY",
+
+      // true: translate only title, false: translate title + all
+      onlyAppNameTranslate: false);
+}

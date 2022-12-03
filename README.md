@@ -1,105 +1,157 @@
 # Auto App Translate
-It is a library that translates apps into 80 languages and automates settings.
+A library that automates translation/registration of metadata (title, description, etc.) in the App Store/Play Store.
+
+![](https://user-images.githubusercontent.com/21379657/205428230-e60ae96e-26ea-427e-88d2-4f613963a884.jpg)
+playstore & appstore translated screenshot
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/melodysdren)
 
-## How to Use?
+
+## How to Use?  
 ### 1. Setup the config file
 ```yaml
 dependencies:
-  easy_localization: ^3.0.2-dev
-  easy_localization_loader: ^1.0.0
-  app_auto_translation: ^0.0.1
+  auto_store_translate:
+```
+
+### 2. Create a dart file in your project and paste the code below.
+create dart file in your project. location doesn't matter.<br>
+![](https://user-images.githubusercontent.com/21379657/205425607-14738b99-9f44-428d-980d-5f259bdd0482.png)
+<br>please fill in all the information below.<br>
+```dart
+import 'package:auto_store_translate/auto_store_translate.dart';
+
+/// write your store info here.
+
+MyStoreInfo myStoreInfo = MyStoreInfo(
+  // Play Store Title 30 characters or less
+  playStoreTitle: "",
+
+  // Play Store Short Description 80 characters or less
+  playStoreShortDescription: "",
+
+  // Play Store Long Description 4000 characters or less
+  playStoreFullDescription: '''
   
-flutter:
-  assets:
-    - assets/localization.csv
-```
 
-### 2. Create the asset folder and insert the localization.csv file.
-![](https://user-images.githubusercontent.com/21379657/205231466-5e0ae6f5-c7a0-4ce7-a24b-e9e07110bed8.png)
-<br>
-lozalization.csv file [download](https://github.com/melodysdreamj/app_auto_translation/files/10138723/localization.csv)
+  ''',
 
+  // Play Store Translation Start Language
+  playStoreStartLanguage: "en",
 
-### 3. Config easy_localization library. Please refer to the [official documentation](https://pub.dev/packages/easy_localization).
-```dart
-import 'package:app_auto_translation/callable/core_my/my_language_code/entity/flutter_support_language_locale.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:easy_localization_loader/easy_localization_loader.dart';
+  // Play Store Title Translation
+  translatePlayStoreName: true,
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await EasyLocalization.ensureInitialized();
-  runApp(
-    EasyLocalization(
-        supportedLocales: flutterLocalizeSupportLanguagesLocale,
-        path: 'assets/localization.csv', 
-        assetLoader: CsvAssetLoader(), // <- important option for translation
-        fallbackLocale: const Locale('en', 'US'),
-        child: const MyApp()
-    ),
-  );
-}
+  // App Store Title 30 characters or less
+  appStoreTitle: "",
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-            localizationsDelegates: context.localizationDelegates,
-            supportedLocales: context.supportedLocales,
-            locale: context.locale,
-            home: MyHomePage()
-    );
-  }
-}
-```
+  // App Store Subtitle 30 characters or less
+  appStoreSubTitle: "",
 
-### 4. Fill in the localization file.
-Fill in str for the key value and the standard language (start translate language) column.<br/>
-![](https://user-images.githubusercontent.com/21379657/205232336-b6d8c138-50e9-4af7-8f1d-19f312473097.png)
+  // App Store Description 4000 characters or less
+  appStringDescription: '''
+  
 
+  ''',
 
-### 5. Translate tr()
-![](https://user-images.githubusercontent.com/21379657/205235871-075593cc-f233-46b2-a77c-f21335dcc2cf.png)
-```dart
-import 'package:easy_localization/easy_localization.dart';
+  // App Store Keywords 100 characters or less , separated by commas, SEO
+  appStoreKeywords: "",
 
-tr('hello world')
-```
+  // App Store Translation Start Language
+  appStoreStartLanguage: "en",
 
+  // App Store Title Translation
+  translateAppStoreName: true,
 
+  // Whether to display the first letter of the App Store title in uppercase
+  onlyFirstCharacterUpperAppName: true,
 
-### 6. Create a dart file in your project and paste the code below.
-Location doesn't matter.<br/>
-```dart
-import 'package:auto_app_translate/auto_app_translate.dart';
+  // App Store Update Notes
+  releaseNote: "fix small bug :)",
+
+  // Home Page URL
+  homepageLink: "",
+
+  // Privacy Policy URL
+  policyPageLink: "",
+);
 
 main() {
-  AutoAppTranslate.translateAppCsvFile(
-    // start translate language
-          startLanguageCode: 'ko',
+  AutoStoreTranslate.translateStoreInfo(
+      myStoreInfo: myStoreInfo,
 
-          // language code to skip translation
-          skipLanguageCodes: [],
+      // google translate api key
+      googleTranslateApiKey: "INPUT_YOUR_GOOGLE_TRANSLATE_API_KEY",
 
-          // str to skip translation
-          skipStr: [],
-
-          // csv file path
-          appAssetsCsvPath: 'assets/localization.csv',
-
-          // google translate api key (https://translatepress.com/docs/automatic-translation/generate-google-api-key/)
-          apiKey: 'INPUT_YOUR_GOOGLE_TRANSLATE_API_KEY');
+      // true: translate only title, false: translate title + all
+      onlyAppNameTranslate: false);
 }
 ```
 It works even if you don't put the Google Translate api key, but you will soon reach the free limit.<br>
 For a guide to getting the Google Translate api key, please refer to [this document](https://translatepress.com/docs/automatic-translation/generate-google-api-key/).
+### 3. Run the code above and wait for the translation to complete.
+![](https://user-images.githubusercontent.com/21379657/205425919-ed8ca26e-eceb-48b9-94d0-15e455583d00.png)
 
-### 7. Run the file. The translation will be completed in the csv file.
-![](https://user-images.githubusercontent.com/21379657/205233138-7a4a2492-43ab-4b71-aa82-ff1598ae189f.png)
+### 4. you will see the translated folder in the project.
+![](https://user-images.githubusercontent.com/21379657/205426102-9fd34208-8e46-47f0-aa23-28c96e9376d4.png)
 
-### 8. Check out your app translated into dozens of languages :)
+### 5. Set up fastlane for each android/ios and register the information in the play store/app store.
+
+# registering with the PlayStore(android)
+
+### 1. Setup the fastlane config file(android)
+please refer to the [official document](https://docs.fastlane.tools/getting-started/android/setup/).
+
+### 2. Add the code below under platform:android do in the android/fastlane/fastfile file.
+```ruby
+    lane :metaOnly do
+      upload_to_play_store(
+          track: 'internal',
+          metadata_path: '../auto_translation/metadata/android',
+          skip_upload_screenshots: true,
+          skip_upload_changelogs: true,
+          release_status: 'draft',
+          aab: '../build/app/outputs/bundle/release/app-release.aab',
+      )
+    end
+```
+
+### 3. Open the terminal in the android project location and enter the following.
+```bash
+    fastlane metaOnly
+```
+
+### 4. You will see the translated information in the play store console.
+![](https://user-images.githubusercontent.com/21379657/205428344-bbf8b8e6-27c7-474c-83e1-14b9864307bb.jpg)
+
+
+# registering with the App Store(iOS)
+### 1. Setup the fastlane config file(ios)
+please refer to the [official document](https://docs.fastlane.tools/getting-started/ios/setup/).
+
+### 2. Add the code below under platform:ios do in the ios/fastlane/fastfile file.
+```ruby
+    lane :metaOnly do
+        get_certificates          
+        get_provisioning_profile  
+        deliver(
+            metadata_path: '../auto_translation/metadata/ios',
+            force: true, # Skip HTMl report verification
+            skip_screenshots: true,
+            skip_binary_upload: true,
+        )
+    end
+```
+
+### 3. Open the terminal in the ios project location and enter the following.
+```bash
+    fastlane metaOnly
+```
+
+### 4. You will see the translated information in the app store connect.
+![](https://user-images.githubusercontent.com/21379657/205428347-43a8e9bf-e6a4-43b9-94db-22a3869d0a04.jpg)
+
+
 
 
 
