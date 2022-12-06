@@ -1,6 +1,6 @@
 name: auto_store_translate
 description: A library that automates translation/registration of metadata (title, description, etc.) in the App Store/Play Store.
-version: 0.0.5
+version: 0.0.6
 homepage: https://github.com/melodysdreamj/auto_store_translate
 
 environment:

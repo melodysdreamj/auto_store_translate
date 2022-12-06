@@ -4,7 +4,7 @@
 
 #### A library that automates translation/registration of metadata (title, description, etc.) in the App Store/Play Store.
 
-![](https://user-images.githubusercontent.com/21379657/205428230-e60ae96e-26ea-427e-88d2-4f613963a884.jpg)
+![](https://user-images.githubusercontent.com/21379657/205780230-479e78de-6886-4bb6-b7c8-b8f1e3134623.jpg)
 playstore & appstore translated screenshot
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/melodysdren)
